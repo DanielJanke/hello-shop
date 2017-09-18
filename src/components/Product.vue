@@ -1,9 +1,11 @@
 <template>
   <div class="product">
     <h1>{{ msg }}</h1>
-    <p>Produkt: {{ $route.params.slug }}</p>
-    <p>Produkt: {{ this.currentProduct.data[0].id }}</p>
-    <p>Preis: {{ this.products.data[0].price[0].amount }}€</p>
+    <h2>{{ boo }}</h2>
+    <p>Produkt: {{ this.$route.params.slug }}</p>
+
+    <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Produkt: {{ this.currentProduct.id }}</p>
+    <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Preis: {{ this.currentProduct.price[0]}}€</p>
   </div>
 </template>
 

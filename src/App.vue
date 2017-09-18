@@ -9,7 +9,12 @@
 import { gateway as MoltinGateway } from '@moltin/sdk'
 
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+      return {
+          test: 'Boo'
+      }
+  }
 }
 </script>
 

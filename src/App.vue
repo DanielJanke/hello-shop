@@ -7,6 +7,7 @@
 
 <script>
 import { gateway as MoltinGateway } from '@moltin/sdk'
+import errorMessageComponent from './components/errorMessageComponent.vue'
 
 export default {
   name: 'app',

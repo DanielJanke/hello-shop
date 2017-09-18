@@ -1,16 +1,31 @@
 <template>
   <div class="product">
+    <!-- <errorMessageComponent>
+    </errorMessageComponent> -->
+    <div v-component="errorMessage"></div>
     <h1>{{ msg }}</h1>
-    <h2>{{ boo }}</h2>
     <p>Produkt: {{ this.$route.params.slug }}</p>
 
     <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Produkt: {{ this.currentProduct.id }}</p>
-    <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Preis: {{ this.currentProduct.price[0]}}€</p>
+    <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Preis: {{ this.currentProduct.price[0].amount}}€</p>
+    <button v-on:click="addToCart" type="button" name="button">Add to cart</button>
+    <button v-on:click="deleteCart" type="button" name="button">Empty Cart</button>
+    <button v-on:click="toOrder" type="button" name="button">Convert to Order</button>
+    <button v-on:click="pay" type="button" name="button">Pay</button>
+    <br>
+    <br>
+    <br>
+    <p>{{this.cart}}</p>
   </div>
 </template>
 
 <script>
 import { gateway as MoltinGateway } from '@moltin/sdk'
+import errorMessageComponent from './errorMessageComponent.vue'
+
+var Moltin = MoltinGateway({
+  client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
+});
 export default {
   name: 'Product',
   data () {
@@ -18,7 +33,9 @@ export default {
       msg: 'Product',
       id: '0',
       products: {},
-      currentProduct: {}
+      currentProduct: {},
+      cart: {},
+      order: {}
     }
   },
   watch: {
@@ -32,8 +49,8 @@ export default {
       console.log('Start');
       console.log(this.$route);
 
-      const Moltin = MoltinGateway({
-        client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
+      Moltin.Cart.Items().then((cart) => {
+        this.cart = cart;
       });
 
       const products = Moltin.Products.All().then((moltinProducts) => {
@@ -42,11 +59,71 @@ export default {
           if (moltinProducts.data[i].slug.toLowerCase() == this.$route.params.slug.toLowerCase()) {
             console.log('Found:');
             this.currentProduct = moltinProducts.data[i];
-          }
-          else {
-            this.currentProduct = {};
+            console.log(this.currentProduct);
           }
         }
+        if (Object.keys(this.currentProduct).length === 0 && this.currentProduct.constructor === Object ) {
+          this.$router.replace('/404');
+        }
+      });
+    },
+    addToCart: function () {
+      Moltin.Cart.AddProduct(this.currentProduct.id, 1).then((item) => {
+        console.log(`Added ${item.data[0].name} to your cart`);
+        Moltin.Cart.Items().then((cart) => {
+          this.cart = cart;
+        });
+      });
+    },
+    deleteCart: function () {
+      Moltin.Cart.Delete().then(() => {
+        console.log('Deleted Cart');
+        Moltin.Cart.Items().then((cart) => {
+          this.cart = cart;
+        });
+      });
+    },
+    toOrder: function () {
+      Moltin.Cart.Checkout({
+        customer: {
+          name: 'John Doe',
+          email: 'john@doe.co'
+        },
+        billing_address: {
+          first_name: 'John',
+          last_name: 'Doe',
+          line_1: '123 Sunny Street',
+          line_2: 'Sunnycreek',
+          county: 'California',
+          postcode: 'CA94040',
+          country: 'US'
+        },
+        shipping_address: {
+          first_name: 'Jon',
+          last_name: 'Doe',
+          line_1: '123 Sunny Street',
+          line_2: 'Sunnycreek',
+          county: 'California',
+          postcode: 'CA94040',
+          country: 'US'
+        }
+      }).then((message) => {
+        console.log(message);
+        this.order = message;
+        console.log(this.order.data.id);
+      })
+    },
+    pay: function () {
+      console.log(this.order.data.id);
+      Moltin.Orders.Payment(this.order.data.id, {
+        gateway: 'stripe',
+        method: 'purchase',
+        first_name: 'John',
+        last_name: 'Doe',
+        number: '4242424242424242',
+        month: '02',
+        year: '2020',
+        verification_value: '123'
       });
     }
   },

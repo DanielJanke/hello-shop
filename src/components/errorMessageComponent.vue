@@ -1,6 +1,6 @@
 <template>
-  <div class="error">
-    {{errorMessage}}
+  <div v-if="status.visible" :style="{ 'background-color': status.type }" class="error">
+    {{status.message}}
   </div>
 </template>
 
@@ -8,6 +8,7 @@
 
 export default {
   name: 'errorMessageComponent',
+  props: ['status'],
   data () {
     return {
       errorMessage: 'Error:'

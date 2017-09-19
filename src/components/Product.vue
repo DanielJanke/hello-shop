@@ -1,8 +1,6 @@
 <template>
   <div class="product">
-    <!-- <errorMessageComponent>
-    </errorMessageComponent> -->
-    <div v-component="errorMessage"></div>
+    <errorMessageComponent v-bind:status="status"></errorMessageComponent>
     <h1>{{ msg }}</h1>
     <p>Produkt: {{ this.$route.params.slug }}</p>
 
@@ -28,6 +26,7 @@ var Moltin = MoltinGateway({
 });
 export default {
   name: 'Product',
+  components: {errorMessageComponent: errorMessageComponent},
   data () {
     return {
       msg: 'Product',
@@ -35,7 +34,12 @@ export default {
       products: {},
       currentProduct: {},
       cart: {},
-      order: {}
+      order: {},
+      status: {
+        visible: true,
+        message: 'lala',
+        type: 'green'
+      }
     }
   },
   watch: {
@@ -55,6 +59,7 @@ export default {
 
       const products = Moltin.Products.All().then((moltinProducts) => {
         this.products = moltinProducts;
+        console.log( moltinProducts );
         for (var i = 0; i < moltinProducts.data.length ; i++) {
           if (moltinProducts.data[i].slug.toLowerCase() == this.$route.params.slug.toLowerCase()) {
             console.log('Found:');
@@ -63,7 +68,8 @@ export default {
           }
         }
         if (Object.keys(this.currentProduct).length === 0 && this.currentProduct.constructor === Object ) {
-          this.$router.replace('/404');
+          // this.$router.replace('/404');
+          console.log('Product not Found');
         }
       });
     },

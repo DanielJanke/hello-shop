@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <errorMessageComponent v-bind:status="status"></errorMessageComponent>
+    <!-- <errorMessageComponent v-bind:status="status"></errorMessageComponent> -->
     <h1>{{ msg }}</h1>
     <p>Produkt: {{ this.$route.params.slug }}</p>
 
@@ -14,12 +14,14 @@
     <br>
     <br>
     <p>{{this.cart}}</p>
+    {{$store.state.stateTest}}
   </div>
 </template>
 
 <script>
 import { gateway as MoltinGateway } from '@moltin/sdk'
 import errorMessageComponent from './errorMessageComponent.vue'
+import store from '.././store/index.js'
 
 var Moltin = MoltinGateway({
   client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
@@ -80,6 +82,9 @@ export default {
           this.cart = cart;
         });
       });
+      store.state.status.visible = "true";
+      store.state.status.type = "green";
+      store.state.status.message = "Erfolgreich hinzugefügt";
     },
     deleteCart: function () {
       Moltin.Cart.Delete().then(() => {
@@ -88,6 +93,8 @@ export default {
           this.cart = cart;
         });
       });
+      store.state.status.visible = "true";
+      store.state.status.type = "orange";
     },
     toOrder: function () {
       Moltin.Cart.Checkout({

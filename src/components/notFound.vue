@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { gateway as MoltinGateway } from '@moltin/sdk'
 export default {
   name: 'notFound',
   data () {

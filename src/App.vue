@@ -1,9 +1,14 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <!-- <errorMessageComponent v-bind:status="status"></errorMessageComponent> -->
+    <errorMessageComponent v-bind:status="$store.state.status"></errorMessageComponent>
     <navigationBarComponent></navigationBarComponent>
     <router-view></router-view>
+    {{test}}
+    <br>
+    {{$store.state.stateTest}}
+    lala
+
   </div>
 </template>
 
@@ -11,13 +16,22 @@
 import { gateway as MoltinGateway } from '@moltin/sdk'
 import navigationBarComponent from './components/navigationBarComponent.vue'
 import errorMessageComponent from './components/errorMessageComponent.vue'
+import store from './store/index.js'
 
 export default {
   name: 'app',
-  components: {navigationBarComponent: navigationBarComponent},
+  components: {
+    navigationBarComponent: navigationBarComponent,
+    errorMessageComponent: errorMessageComponent
+  },
   data () {
       return {
-          test: 'Boo'
+          test: 'This is a store test value'
+          // status: {
+          //   visible: true,
+          //   message: 'lala',
+          //   type: 'green'
+          // }
       }
   }
 }

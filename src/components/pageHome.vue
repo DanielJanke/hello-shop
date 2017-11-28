@@ -14,17 +14,17 @@
           </div>
         </div>
       <!-- </header> -->
-    </div>
+    </div>  
   </div>
   <div class="grid-container">
     <div class="grid-x grid-margin-x">
-      <div class="small-12 medium-4 cell">
+      <div class="small-12 medium-6 large-4 cell">
         <productBox />
       </div>
-      <div class="small-12 medium-4 cell">
+      <div class="small-12 medium-6 large-4 cell">
         <productBox />
       </div>
-      <div class="small-12 medium-4 cell">
+      <div class="small-12 medium-6 large-4 cell">
         <productBox />
       </div>
     </div>

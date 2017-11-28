@@ -1,6 +1,8 @@
 <template>
-  <div class="bar">
+  <div class="grid-container">
     <img src="../assets/logo-white.png" alt="">
+    <router-link :to="{ name: 'pageHome', params: {} }">Home</router-link>
+    <router-link :to="{ name: 'pageHome', params: {} }">Home</router-link>
   </div>
 </template>
 

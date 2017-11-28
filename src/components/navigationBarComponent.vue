@@ -1,6 +1,6 @@
 <template>
   <div class="bar">
-    NavBar
+    <img src="../assets/logo-white.png" alt="">
   </div>
 </template>
 
@@ -21,11 +21,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .bar {
   width: 100%;
   height: 4rem;
   color: white;
-  background-color: #1A1A1A;
+  /*background-color: #1A1A1A;*/
 }
 </style>

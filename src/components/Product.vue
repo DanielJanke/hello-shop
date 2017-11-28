@@ -25,7 +25,7 @@ import store from '.././store/index.js'
 
 var Moltin = MoltinGateway({
   client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
-});
+})
 export default {
   name: 'Product',
   components: {errorMessageComponent: errorMessageComponent},
@@ -57,44 +57,44 @@ export default {
 
       Moltin.Cart.Items().then((cart) => {
         this.cart = cart;
-      });
+      })
 
-      const products = Moltin.Products.All().then((moltinProducts) => {
+      Moltin.Products.All().then((moltinProducts) => {
         this.products = moltinProducts;
-        console.log( moltinProducts );
-        for (var i = 0; i < moltinProducts.data.length ; i++) {
-          if (moltinProducts.data[i].slug.toLowerCase() == this.$route.params.slug.toLowerCase()) {
+        console.log(moltinProducts);
+        for (var i = 0; i < moltinProducts.data.length; i++) {
+          if (moltinProducts.data[i].slug.toLowerCase() === this.$route.params.slug.toLowerCase()) {
             console.log('Found:');
             this.currentProduct = moltinProducts.data[i];
             console.log(this.currentProduct);
           }
         }
-        if (Object.keys(this.currentProduct).length === 0 && this.currentProduct.constructor === Object ) {
+        if (Object.keys(this.currentProduct).length === 0 && this.currentProduct.constructor === Object) {
           // this.$router.replace('/404');
           console.log('Product not Found');
         }
-      });
+      })
     },
     addToCart: function () {
       Moltin.Cart.AddProduct(this.currentProduct.id, 1).then((item) => {
         console.log(`Added ${item.data[0].name} to your cart`);
         Moltin.Cart.Items().then((cart) => {
           this.cart = cart;
-        });
-      });
-      store.state.status.visible = "true";
-      store.state.status.type = "green";
-      store.state.status.message = "Erfolgreich hinzugefügt";
+        })
+      })
+      store.state.status.visible = 'true';
+      store.state.status.type = 'green';
+      store.state.status.message = 'Erfolgreich hinzugefügt';
     },
     deleteCart: function () {
       Moltin.Cart.Delete().then(() => {
         console.log('Deleted Cart');
         Moltin.Cart.Items().then((cart) => {
           this.cart = cart;
-        });
-      });
-      store.state.status.visible = "true";
-      store.state.status.type = "orange";
+        })
+      })
+      store.state.status.visible = 'true';
+      store.state.status.type = 'orange';
     },
     toOrder: function () {
       Moltin.Cart.Checkout({
@@ -148,7 +148,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 h1, h2 {
   font-weight: normal;
 }

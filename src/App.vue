@@ -7,15 +7,18 @@
     {{test}}
     <br>
     {{$store.state.stateTest}}
-    lala
-
+    {{$store.state.products}}
   </div>
 </template>
 
 <script>
 import { gateway as MoltinGateway } from '@moltin/sdk'
+
 import navigationBarComponent from './components/navigationBarComponent.vue'
 import errorMessageComponent from './components/errorMessageComponent.vue'
+// import pageHome from './components/pageHome.vue'
+// import productBox from './components/productBox.vue'
+
 import store from './store/index.js'
 
 export default {
@@ -25,31 +28,42 @@ export default {
     errorMessageComponent: errorMessageComponent
   },
   data () {
-      return {
-          test: 'This is a store test value'
-          // status: {
-          //   visible: true,
-          //   message: 'lala',
-          //   type: 'green'
-          // }
-      }
+    return {
+      test: 'This is a store test value'
+    }
+  },
+  created () {
+    console.log(store.state.products)
+    console.log('a is: ' + this.a)
+    const Moltin = MoltinGateway({
+      client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
+    })
+    Moltin.Products.All().then((products) => {
+      store.state.products = products;
+      console.log(products);
+      console.log(store.state.products);
+    })
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+
+@import '~.././src/assets/scss/main.scss';
+
 body {
   margin: 0;
+
+  font-family: 'Roboto Condensed', sans-serif !important;
+  font-weight: 400;
+
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   color: white;
   min-height: 100vh;
-  /*margin-top: 60px;*/
   padding: 0;
   background-color: #0D0D0D;
 }

@@ -19,7 +19,7 @@ export default {
     }
   },
   created: function () {
-    console.log('error');
+    console.log('errorMessage created');
   },
   methods: {
     close: function () {
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 
 .close {
   width: 10rem;

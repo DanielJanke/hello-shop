@@ -1,19 +1,21 @@
 
 <template>
-  <div class="productBox">
-    <div class="productBox__image">
-      <img src="../assets/coke.png" alt="">
-    </div>
-    <div class="productBox__infos">
-      <h4>Coca Cola</h4>
-      <p>0,5 Liter</p>
-      <div class="productBox__price">
-        <p><b>2,99€</b> + 0,25€ Pfand</p>
-        <p>2,00€ / Liter</p>
+  <router-link :to="{ path: 'Product/coke', params: {} }">
+    <div class="productBox">
+      <div class="productBox__image">
+        <img src="../assets/coke.png" alt="">
       </div>
-      <a class="button button--secondary button--secondary--black" href="">Einkaufen</a>
+      <div class="productBox__infos">
+        <h4>Coca Cola</h4>
+        <p>0,5 Liter</p>
+        <div class="productBox__price">
+          <p><b>2,99€</b> + 0,25€ Pfand</p>
+          <p>2,00€ / Liter</p>
+        </div>
+        <a class="button button--secondary button--secondary--black">Einkaufen</a>
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 

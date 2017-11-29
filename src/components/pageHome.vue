@@ -20,7 +20,9 @@
     <!-- <div class="grid-x grid-margin-x"> -->
       <flickity ref="flickity" :options="flickityOptions">
         <div class="carousel-cell">
-          <productBox />
+
+            <productBox />
+
         </div>
         <div class="carousel-cell">
           <productBox />
@@ -72,7 +74,7 @@ export default {
         resize: false,
         contain: false,
         groupCell: 3,
-        watchCSS: true
+        watchCSS: false
       }
     }
   },

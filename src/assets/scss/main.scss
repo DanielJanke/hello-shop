@@ -126,15 +126,16 @@ a {
     visibility: hidden;
   }
   // Show desktop mode regular
-  #gallery {
-    display: flex;
-    justify-content: space-between;
-  }
+  // #gallery {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
 }
 
 .slider {
   padding-right: 0;
   padding-left: 0;
+  max-width: 100%;
 }
 
 .flickity-viewport

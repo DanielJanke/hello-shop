@@ -5,6 +5,7 @@ import Hello from '@/components/Hello'
 import Product from '@/components/Product'
 import notFound from '@/components/notFound'
 import pageHome from '@/components/pageHome'
+import pageCart from '@/components/pages/pageCart'
 
 Vue.use(Router)
 
@@ -20,6 +21,11 @@ export default new Router({
       path: '/home',
       name: 'pageHome',
       component: pageHome
+    },
+    {
+      path: '/warenkorb',
+      name: 'pageCart',
+      component: pageCart
     },
     {
       path: '/Product/:slug',

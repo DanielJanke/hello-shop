@@ -44,7 +44,7 @@ a {
   height: 13rem;
   display: flex;
   justify-content: space-around;
-  width: 320px;
+  width: 340px;
   max-width: 90%;
   margin: 0 auto 7rem auto;
   &__image {
@@ -97,8 +97,6 @@ a {
 
 /** — Flickity Slider — */
 
-
-
 .flickity-page-dots
 {
   bottom: 40px;
@@ -114,6 +112,7 @@ a {
   background-color: #f00;
 }
 
+// Disables slider on larger devic
 
 #gallery::after {
   content: 'flickity';
@@ -126,4 +125,20 @@ a {
     content: '';
     visibility: hidden;
   }
+  // Show desktop mode regular
+  #gallery {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.slider {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.flickity-viewport
+{
+  padding: 7rem 0 0 0;
+  margin: -6em 0 0 0;
 }

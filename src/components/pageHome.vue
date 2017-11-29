@@ -16,23 +16,29 @@
       <!-- </header> -->
     </div>
   </div>
-  <div class="grid-container">
+  <div class="grid-container slider">
     <!-- <div class="grid-x grid-margin-x"> -->
       <flickity ref="flickity" :options="flickityOptions">
-        <div class="small-12 medium-6 large-4 cell carousel-cell">
+        <div class="carousel-cell">
           <productBox />
         </div>
-        <div class="small-12 medium-6 large-4 cell carousel-cell">
+        <div class="carousel-cell">
           <productBox />
         </div>
-        <div class="small-12 medium-6 large-4 cell carousel-cell">
+        <div class="carousel-cell">
+          <productBox />
+        </div>
+        <div class="carousel-cell">
+          <productBox />
+        </div>
+        <div class="carousel-cell">
           <productBox />
         </div>
       </flickity>
     <!-- </div> -->
   </div>
   <div class="grid-x">
-      <a style="margin: 0 auto;" class="button button--primary" href="#">Alle Produkte</a>
+      <a style="margin: 0 auto 10rem auto;" class="button button--primary" href="#">Alle Produkte</a>
   </div>
   <!-- <flickity ref="flickity" :options="flickityOptions">
     <div class="carousel-cell">1</div>

@@ -17,37 +17,57 @@
     </div>
   </div>
   <div class="grid-container">
-    <div class="grid-x grid-margin-x">
-      <div class="small-12 medium-6 large-4 cell">
-        <productBox />
-      </div>
-      <div class="small-12 medium-6 large-4 cell">
-        <productBox />
-      </div>
-      <div class="small-12 medium-6 large-4 cell">
-        <productBox />
-      </div>
-    </div>
+    <!-- <div class="grid-x grid-margin-x"> -->
+      <flickity ref="flickity" :options="flickityOptions">
+        <div class="small-12 medium-6 large-4 cell carousel-cell">
+          <productBox />
+        </div>
+        <div class="small-12 medium-6 large-4 cell carousel-cell">
+          <productBox />
+        </div>
+        <div class="small-12 medium-6 large-4 cell carousel-cell">
+          <productBox />
+        </div>
+      </flickity>
+    <!-- </div> -->
   </div>
   <div class="grid-x">
       <a style="margin: 0 auto;" class="button button--primary" href="#">Alle Produkte</a>
   </div>
+  <!-- <flickity ref="flickity" :options="flickityOptions">
+    <div class="carousel-cell">1</div>
+    <div class="carousel-cell">2</div>
+    <div class="carousel-cell">3</div>
+    <div class="carousel-cell">4</div>
+    <div class="carousel-cell">5</div>
+  </flickity> -->
 </div>
-
 </template>
 
 <script type="text/javascript">
 import productBox from '@/components/productBox.vue'
+import flickity from 'vue-flickity'
 
 export default {
   name: 'pageHome',
   components: {
-    productBox: productBox
+    productBox: productBox,
+    flickity: flickity
   },
   data () {
     return {
       msg: 'Welcome to Your Vue.js 2 App',
-      product: {}
+      product: {},
+      flickityOptions: {
+        initialIndex: 3,
+        prevNextButtons: true,
+        pageDots: true,
+        wrapAround: false,
+        resize: false,
+        contain: false,
+        groupCell: 3,
+        watchCSS: true
+      }
     }
   },
   created: function () {

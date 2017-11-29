@@ -44,7 +44,8 @@ a {
   height: 13rem;
   display: flex;
   justify-content: space-around;
-  max-width: 320px;
+  width: 320px;
+  max-width: 90%;
   margin: 0 auto 7rem auto;
   &__image {
     display: flex;
@@ -89,5 +90,40 @@ a {
       color: black;
       box-shadow:inset 0px 0px 0px 2px #000;
     }
+  }
+}
+
+/** === Overwrites === */
+
+/** — Flickity Slider — */
+
+
+
+.flickity-page-dots
+{
+  bottom: 40px;
+}
+
+.flickity-page-dots .dot {
+  background-color: #eee;
+  opacity: 0.75;
+}
+
+.flickity-page-dots .dot.is-selected
+{
+  background-color: #f00;
+}
+
+
+#gallery::after {
+  content: 'flickity';
+  visibility: hidden;
+}
+
+@media screen and ( min-width: 1024px ) {
+  /* disable Flickity for large devices */
+  #gallery::after {
+    content: '';
+    visibility: hidden;
   }
 }

@@ -8,7 +8,7 @@
       <h4>Coca Cola</h4>
       <p>0,5 Liter</p>
       <div class="productBox__price">
-        <p class="bold">2,99€ + 0,25€ Pfand</p>
+        <p><b>2,99€</b> + 0,25€ Pfand</p>
         <p>2,00€ / Liter</p>
       </div>
       <a class="button button--secondary button--secondary--black" href="">Einkaufen</a>

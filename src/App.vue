@@ -4,10 +4,10 @@
     <errorMessageComponent v-bind:status="$store.state.status"></errorMessageComponent>
     <navigationBarComponent></navigationBarComponent>
     <router-view></router-view>
-    {{test}}
+    <!-- {{test}}
     <br>
     {{$store.state.stateTest}}
-    {{$store.state.products}}
+    {{$store.state.products}} -->
   </div>
 </template>
 

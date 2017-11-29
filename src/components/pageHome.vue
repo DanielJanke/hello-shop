@@ -9,12 +9,12 @@
           <p class="small-12 medium-6 cell">Von 23 Uhr bis 3 Uhr morgens musst du nicht mehr trocken liegen wie ein Fisch. Wir liefern dir alles, was du für eine Feier brauchst direkt an die Haustür.</p>
           <div class="auto cell"></div>
           <div class="small-12 medium-6 cell">
-            <a class="button button--primary">Bestellen</a>
-            <a class="button button--secondary">Stöbern</a>
+            <a class="button button--primary" href="">Bestellen</a>
+            <a class="button button--secondary" href="">Stöbern</a>
           </div>
         </div>
       <!-- </header> -->
-    </div>  
+    </div>
   </div>
   <div class="grid-container">
     <div class="grid-x grid-margin-x">
@@ -29,8 +29,8 @@
       </div>
     </div>
   </div>
-  <div class="">
-    <a href="#">Alle Produkte</a>
+  <div class="grid-x">
+      <a style="margin: 0 auto;" class="button button--primary" href="#">Alle Produkte</a>
   </div>
 </div>
 

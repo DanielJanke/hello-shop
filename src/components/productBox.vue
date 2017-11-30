@@ -21,6 +21,7 @@
 
 <script>
 import store from '.././store/index.js'
+import { gateway as MoltinGateway } from '@moltin/sdk'
 
 export default {
   name: 'productBox',
@@ -29,8 +30,10 @@ export default {
       errorMessage: 'Error:'
     }
   },
+  store: store,
   created: function () {
     console.log('errorMessage created');
+    console.log('Moltin'+MoltinGateway);
   },
   methods: {
     close: function () {

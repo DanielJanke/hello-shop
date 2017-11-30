@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Hello from '@/components/Hello'
-import Product from '@/components/Product'
+import Product from '@/components/pages/pageProduct'
 import notFound from '@/components/notFound'
 import pageHome from '@/components/pageHome'
 import pageCart from '@/components/pages/pageCart'

@@ -42,6 +42,13 @@ a {
   text-align: center;
 }
 
+// Add this class to .navigationBar in case of using a navigationBar without header below it to achieve margin below it.
+
+.navigationWithoutHeader
+{
+  margin-bottom: 2rem;
+}
+
 /** === Productbox === */
 
 .productBox {

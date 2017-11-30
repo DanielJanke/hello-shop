@@ -1,14 +1,15 @@
 <template>
 <div class="grid-container">
   <h1 class="textCenter">Warenkorb</h1>
-  <p>{{ store.state.status.visible }}</p>
+  <!-- <p>{{ store }}</p> -->
 </div>
 </template>
 
 <script type="text/javascript">
+import { gateway as MoltinGateway } from '@moltin/sdk'
 import productBox from '@/components/productBox.vue'
 import flickity from 'vue-flickity'
-import store from '.././store/index.js'
+import store from '@/store/index.js'
 
 export default {
   name: 'pageCart',
@@ -16,13 +17,12 @@ export default {
     productBox: productBox,
     flickity: flickity
   },
-  data () {
-    return {
-
-    }
-  },
   created: function () {
     console.log('Cart');
+    console.log(store);
+    MoltinGateway.Cart.Items().then((cart) => {
+      console.log(cart);
+    })
   }
 }
 

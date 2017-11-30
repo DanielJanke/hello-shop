@@ -5,7 +5,7 @@
         <!-- <header> -->
           <div class="grid-x grid-margin-x align-items_center">
             <div class="small-12 medium-4 cell">
-              <img width="100px" src="../assets/coke.png" alt="">
+              <img width="100px" src="../../assets/coke.png" alt="">
             </div>
             <div class="small-12 medium-8 cell textCenter">
               <h1 class=" ">{{ this.currentProduct.name }}</h1>
@@ -43,8 +43,8 @@
 
 <script>
 import { gateway as MoltinGateway } from '@moltin/sdk'
-import errorMessageComponent from './errorMessageComponent.vue'
-import store from '.././store/index.js'
+import errorMessageComponent from '@/components/errorMessageComponent.vue'
+import store from '@/store/index.js'
 
 var Moltin = MoltinGateway({
   client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'

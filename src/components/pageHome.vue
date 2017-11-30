@@ -86,18 +86,5 @@ export default {
 </script>
 
 <style>
-  .header {
-    width: 100%;
 
-    background-color: #222;
-    min-height: 70vh;
-
-    display: flex;
-    align-items: center;
-    margin-bottom: 4rem;
-  }
-
-  header {
-
-  }
 </style>

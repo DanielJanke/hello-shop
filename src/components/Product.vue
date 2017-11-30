@@ -1,20 +1,43 @@
 <template>
-  <div class="product">
-    <!-- <errorMessageComponent v-bind:status="status"></errorMessageComponent> -->
-    <h1>{{ msg }}</h1>
-    <p>Produkt: {{ this.$route.params.slug }}</p>
+  <div class="">
+    <div class="header header--gradient2 header--small">
+      <div class="grid-container">
+        <!-- <header> -->
+          <div class="grid-x grid-margin-x align-items_center">
+            <div class="small-12 medium-4 cell">
+              <img width="100px" src="../assets/coke.png" alt="">
+            </div>
+            <div class="small-12 medium-8 cell textCenter">
+              <h1 class=" ">{{ this.currentProduct.name }}</h1>
+              <p class="small-12 cell textCenter">Den Klassiker gibt es auch bei uns zu kaufen.</p>
+              <a v-on:click="addToCart" class="button button--secondary">In den Warenkorb</a>
+            </div>
 
-    <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Produkt: {{ this.currentProduct.id }}</p>
-    <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Preis: {{ this.currentProduct.price[0].amount}}€</p>
-    <button v-on:click="addToCart" type="button" name="button">Add to cart</button>
-    <button v-on:click="deleteCart" type="button" name="button">Empty Cart</button>
-    <button v-on:click="toOrder" type="button" name="button">Convert to Order</button>
-    <button v-on:click="pay" type="button" name="button">Pay</button>
-    <br>
-    <br>
-    <br>
-    <p>{{this.cart}}</p>
-    {{$store.state.stateTest}}
+            <!-- <div class="auto cell"></div> -->
+            <div class="small-12 medium-4 textCenter cell">
+              <!-- <a class="button button--primary" href="">In den Warenkorb</a> -->
+
+            </div>
+          </div>
+        <!-- </header> -->
+      </div>
+    </div>
+    <div class="grid-container">
+      <h1>{{ msg }}</h1>
+      <p>Produkt: {{ this.$route.params.slug }}</p>
+
+      <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Produkt: {{ this.currentProduct.id }}</p>
+      <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Preis: {{ this.currentProduct.price[0].amount}}€</p>
+      <button v-on:click="addToCart" type="button" name="button">Add to cart</button>
+      <button v-on:click="deleteCart" type="button" name="button">Empty Cart</button>
+      <button v-on:click="toOrder" type="button" name="button">Convert to Order</button>
+      <button v-on:click="pay" type="button" name="button">Pay</button>
+      <br>
+      <br>
+      <br>
+      <p>{{this.cart}}</p>
+      {{$store.state.stateTest}}
+    </div>
   </div>
 </template>
 
@@ -149,17 +172,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 </style>

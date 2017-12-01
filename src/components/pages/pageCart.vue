@@ -21,8 +21,40 @@
         {{ cart.meta.display_price.with_tax.formatted }}
       </div>
     </div>
-    <div class="small-12 medium-6 cell">
-      
+    <div style="background-color: #222; color: white;" class="small-12 medium-5 medium-offset-1 cell">
+      <div class="grid-container box">
+        <h2 class="textCenter">WOHIN SOLLEN WIR LIEFERN?</h2>
+        <div class="grid-x grid-margin-x">
+          <div class="small-12 cell">
+            <label>Name
+              <input type="text" placeholder="Name">
+            </label>
+          </div>
+          <div class="small-12 cell">
+            <label>Straße und Hausnummer
+              <input type="text" placeholder="Name">
+            </label>
+          </div>
+          <div class="small-6 cell">
+            <label>Postleitzahl
+              <input type="text" placeholder="Postleitzahl">
+            </label>
+          </div>
+          <div class="small-6 cell">
+            <label>Stadt
+              <input type="text" placeholder="Berlin">
+            </label>
+          </div>
+          <div class="small-12 cell margin-bottom-1">
+            <fieldset>
+              <label for="checkbox1">Ich bestätige hiermit die Nutzungbedingungen und die AGB.</label><input id="checkbox1" type="checkbox">
+            </fieldset>
+          </div>
+          <div class="small-12 cell">
+            <a class="button button--primary" href="#">Kostenpflichtig bestellen</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

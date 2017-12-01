@@ -171,6 +171,28 @@ label {
   }
 }
 
+/** — Notification (Error) Component — */
+
+.close {
+  width: 10rem;
+}
+.error {
+  position: fixed;
+  width: 100%;
+  height: 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: red;
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.visible {
+  height: 2rem;
+  opacity: 1;
+}
+
 /** === Overwrites === */
 
 /** — Flickity Slider — */

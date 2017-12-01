@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { gateway as MoltinGateway } from '@moltin/sdk'
+// import { gateway as MoltinGateway } from '@moltin/sdk'
 
 import navigationBarComponent from './components/navigationBarComponent.vue'
 import errorMessageComponent from './components/errorMessageComponent.vue'
@@ -20,6 +20,7 @@ import errorMessageComponent from './components/errorMessageComponent.vue'
 // import productBox from './components/productBox.vue'
 
 import store from './store/index.js'
+import Moltin from './services/moltin.js'
 
 export default {
   name: 'app',
@@ -35,9 +36,9 @@ export default {
   created () {
     console.log(store.state.products)
     console.log('a is: ' + this.a)
-    const Moltin = MoltinGateway({
-      client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
-    })
+    // const Moltin = MoltinGateway({
+    //   client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
+    // })
     Moltin.Products.All().then((products) => {
       store.state.products = products;
       console.log(products);

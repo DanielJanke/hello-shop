@@ -33,7 +33,7 @@ export default {
   store: store,
   created: function () {
     console.log('errorMessage created');
-    console.log('Moltin'+MoltinGateway);
+    console.log('Moltin' + MoltinGateway);
   },
   methods: {
     close: function () {

@@ -3,7 +3,7 @@
     <!-- <img src="./assets/logo.png"> -->
     <errorMessageComponent v-bind:status="$store.state.status"></errorMessageComponent>
     <navigationBarComponent></navigationBarComponent>
-    <router-view></router-view>
+    <router-view style="margin-top: 4rem;"></router-view>
     <!-- {{test}}
     <br>
     {{$store.state.stateTest}}
@@ -34,15 +34,15 @@ export default {
     }
   },
   created () {
-    console.log(store.state.products)
-    console.log('a is: ' + this.a)
+    // console.log(store.state.products)
+    // console.log('a is: ' + this.a)
     // const Moltin = MoltinGateway({
     //   client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
     // })
     Moltin.Products.All().then((products) => {
       store.state.products = products;
-      console.log(products);
-      console.log(store.state.products);
+      // console.log(products);
+      // console.log(store.state.products);
     })
   }
 }
@@ -66,6 +66,6 @@ body {
   color: white;
   min-height: 100vh;
   padding: 0;
-  background-color: #0D0D0D;
+
 }
 </style>

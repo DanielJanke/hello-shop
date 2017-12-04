@@ -3,14 +3,14 @@
     <div class="header header--gradient2 header--small">
       <div class="grid-container">
         <!-- <header> -->
-          <div class="grid-x grid-margin-x align-items_center">
+          <div class="grid-x grid-margin-x align-items_center textCenter">
             <div class="small-12 medium-4 cell">
               <img width="100px" src="../../assets/coke.png" alt="">
             </div>
             <div class="small-12 medium-8 cell textCenter">
               <h1 class=" ">{{ this.currentProduct.name }}</h1>
               <p class="small-12 cell textCenter">Den Klassiker gibt es auch bei uns zu kaufen.</p>
-              <a v-on:click="addToCart" class="button button--secondary">In den Warenkorb</a>
+              <!-- <a v-on:click="addToCart" class="button button--primary">In den Warenkorb</a> -->
             </div>
 
             <!-- <div class="auto cell"></div> -->
@@ -29,29 +29,33 @@
       <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Produkt: {{ this.currentProduct.id }}</p>
       <p v-if="Object.keys(this.currentProduct).length !== 0 && this.currentProduct.constructor === Object">Preis: {{ this.currentProduct.price[0].amount}}€</p>
       <button v-on:click="addToCart" type="button" name="button">Add to cart</button>
+      <button @click="$store.dispatch({type: 'addToCart', productId: productId, quantity: inputValue })" type="button" name="button">Add to cart</button>
       <button v-on:click="deleteCart" type="button" name="button">Empty Cart</button>
       <button v-on:click="toOrder" type="button" name="button">Convert to Order</button>
       <button v-on:click="pay" type="button" name="button">Pay</button>
       <br>
       <br>
       <br>
-      <p>{{this.cart}}</p>
+      <p>{{$store.state.cart}}</p>
       {{$store.state.stateTest}}
     </div>
+    <addToCartComponent v-bind:productId="this.currentProduct.id" />
   </div>
 </template>
 
 <script>
-import { gateway as MoltinGateway } from '@moltin/sdk'
-import errorMessageComponent from '@/components/errorMessageComponent.vue'
-import store from '@/store/index.js'
 
-var Moltin = MoltinGateway({
-  client_id: '4Eyi0mI9p39ttLnSi1BkRkzcxTRtT7zNNNHlEAcDbM'
-})
+import errorMessageComponent from '@/components/errorMessageComponent.vue'
+import addToCartComponent from '@/components/addToCartComponent.vue'
+import store from '@/store/index.js'
+import Moltin from '../../services/moltin.js'
+
 export default {
   name: 'Product',
-  components: {errorMessageComponent: errorMessageComponent},
+  components: {
+    errorMessageComponent: errorMessageComponent,
+    addToCartComponent: addToCartComponent
+  },
   data () {
     return {
       msg: 'Product',
@@ -59,12 +63,7 @@ export default {
       products: {},
       currentProduct: {},
       cart: {},
-      order: {},
-      status: {
-        visible: true,
-        message: 'lala',
-        type: 'green'
-      }
+      order: {}
     }
   },
   watch: {
@@ -93,7 +92,7 @@ export default {
           }
         }
         if (Object.keys(this.currentProduct).length === 0 && this.currentProduct.constructor === Object) {
-          // this.$router.replace('/404');
+          this.$router.replace('/404');
           console.log('Product not Found');
         }
       })
@@ -163,7 +162,7 @@ export default {
       });
     }
   },
-  created: function () {
+  beforeMount: function () {
     let self = this;
     self.initial();
   }

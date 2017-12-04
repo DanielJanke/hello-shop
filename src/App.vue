@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
+  <div v-bind:class="{ overflow_hidden: $store.state.cart.cartIsOpen }" id="app">
     <errorMessageComponent v-bind:status="$store.state.status"></errorMessageComponent>
     <navigationBarComponent></navigationBarComponent>
-    <router-view style="margin-top: 4rem;"></router-view>
+    <cartComponent></cartComponent>
+    <router-view style="padding-top: 4rem;"></router-view>
     <!-- {{test}}
     <br>
     {{$store.state.stateTest}}
@@ -16,7 +16,7 @@
 
 import navigationBarComponent from './components/navigationBarComponent.vue'
 import errorMessageComponent from './components/errorMessageComponent.vue'
-// import pageHome from './components/pageHome.vue'
+import cartComponent from './components/cartComponent.vue'
 // import productBox from './components/productBox.vue'
 
 import store from './store/index.js'
@@ -26,7 +26,8 @@ export default {
   name: 'app',
   components: {
     navigationBarComponent: navigationBarComponent,
-    errorMessageComponent: errorMessageComponent
+    errorMessageComponent: errorMessageComponent,
+    cartComponent: cartComponent
   },
   data () {
     return {
@@ -34,6 +35,8 @@ export default {
     }
   },
   created () {
+    store.dispatch('initial');
+
     // console.log(store.state.products)
     // console.log('a is: ' + this.a)
     // const Moltin = MoltinGateway({

@@ -2,30 +2,47 @@
 <div class="grid-container">
   <h1 class="textCenter margin-top-1">BESTELLEN</h1>
   <div class="grid-x grid-margin-x">
-    <div class="small-12 medium-4 medium-offset-1 cell">
+    <div class="small-12 medium-6  cell">
       <div class="grid-container box">
         <h2 class="textCenter">HAST DU EINEN ACCOUNT?</h2>
         <div class="grid-x grid-margin-x">
           <div class="small-12 cell">
-            <label>Email
-              <input type="text">
+            <label>Name
+              <input type="text" placeholder="Name">
             </label>
           </div>
           <div class="small-12 cell">
-            <label>Passwort
-              <input type="password">
+            <label>Straße und Hausnummer
+              <input type="text" placeholder="Name">
             </label>
           </div>
-
-
+          <div class="small-6 cell">
+            <label>Postleitzahl
+              <input type="text" placeholder="Postleitzahl">
+            </label>
+          </div>
+          <div class="small-6 cell">
+            <label>Stadt
+              <input type="text" placeholder="Berlin">
+            </label>
+          </div>
           <div class="small-12 cell">
-            <a class="button button--primary margin-bottom-1" href="#">Anmelden</a>
-            <a class="button button--secondary">Passwort veressen?</a>
+            <fieldset>
+              <label for="checkbox1">Ich bestätige hiermit die Nutzungbedingungen und die AGB.</label><input id="checkbox1" type="checkbox">
+            </fieldset>
+          </div>
+          <div class="small-12 cell margin-bottom-1">
+            <fieldset>
+              <label for="checkbox2">Meine Rechnungsadresse ist identisch mit meiner Lieferadresse</label><input id="checkbox2" type="checkbox">
+            </fieldset>
+          </div>
+          <div class="small-12 cell">
+            <a class="button button--primary margin-bottom-1" href="#">Kostenpflichtig bestellen</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="small-12 medium-4 medium-offset-2  cell">
+    <div class="small-12 medium-6  cell">
       <div class="grid-container box">
         <h2 class="textCenter">ALS GAST BESTELLEN</h2>
         <div class="grid-x grid-margin-x">

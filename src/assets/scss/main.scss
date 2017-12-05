@@ -35,7 +35,7 @@ p {
   margin-bottom: 1rem;
 }
 
-label {
+label, input {
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -86,8 +86,8 @@ label {
   position: absolute;
   bottom: 1rem;
 
-  width: 80%;
-  margin-left: -45%;
+  width: 16rem;
+  right: 1rem
 }
 
 
@@ -116,7 +116,7 @@ label {
   animation: neon 5s infinite;
   &--off {
     position: absolute;
-    transform: translateX( calc(-50% - 100px) );
+    transform: translateX( calc(-50% - 125px) );
     z-index: -10;
   }
 }
@@ -255,9 +255,6 @@ label {
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
-
-
-
   transition: all 0.2s;
 
   &:hover {
@@ -283,6 +280,12 @@ label {
       color: black;
       box-shadow:inset 0px 0px 0px 2px #000;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -407,32 +410,74 @@ label {
   height: 100%;
   width: 80%;
   top: 0;
-  background-color: #222;
+
   z-index: 110;
   right: 0;
-  box-shadow: -2px 0 8px #111;
+  background-color: #222;
+  box-shadow: -2px 0 8px #000;
+  overflow: scroll;
+  padding: 0 1rem;
+  box-sizing: border-box;
+
+  &__overlayLeft {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 110;
+    opacity: 1;
+  }
+
+  &__priceRow {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-/** — Vue Transition — */
+/** — Vue Transitions — */
+
+.fadeout-enter-active, .fadeout-leave-active {
+  transition: all .3s ease-in-out;
+}
+
+.fadeout-enter-to {
+  opacity: 1;
+}
+
+.fadeout-leave {
+  opacity: 1;
+}
+
+.fadeout-leave-to {
+  opacity: 0;
+}
+
+.fadeout-enter {
+  opacity: 0;
+}
 
 .slideLeft-enter-active, .slideLeft-leave-active{
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .slideLeft-enter-to {
   right: 0rem;
+  // transition: translateY(0);
 }
 
 .slideLeft-enter {
   right: -100%;
+  // transition: translateY(-100%);
 }
 
 .slideLeft-leave {
   right: 0;
+  // transition: translateY(0);
 }
 
 .slideLeft-leave-to {
   right: -100%;
+  // transition: translateY(-100%);
 }
 
 @media (min-width: 768px) {

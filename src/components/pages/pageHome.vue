@@ -45,9 +45,9 @@
 
   <div class="rec">
     <div class="grid-container textCenter">
-      <div style="margin: 0 0 -1rem 0" class="neonSign__wrapper">
-        <img class="neonSign" width="200px" src="../../assets/neon-place-needle.png" alt="">
-        <img class="neonSign--off" width="200px" src="../../assets/neon-place-needle-off.png" alt="">
+      <div style="margin: 0 0 -2rem 0" class="neonSign__wrapper">
+        <img class="neonSign" width="250px" src="../../assets/neon-place-needle.png" alt="">
+        <img class="neonSign--off" width="250px" src="../../assets/neon-place-needle-off.png" alt="">
       </div>
       <h2>JEDERZEIT WISSEN, WO DIE WARE STECKT</h2>
       <div class="grid-x">

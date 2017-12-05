@@ -1,9 +1,12 @@
 <template>
   <div class="grid-container addToCart">
     <div class="grid-x grid-margin-x align-items_center padding-1 ">
-      <div class="small-7 cell text_right">
+      <div class="small-1 cell">
+        10,00€
+      </div>
+      <div class="small-6 cell text_right">
         <a @click="decrease" class="button button--secondary">-</a>
-        <input class="textCenter" style="width: 3rem; display: inline; height: 36px; margin: 0;" type="number" name="" :value="inputValue">
+        <input class="textCenter" style="width: 3rem; display: inline; height: 40px; margin: -10px 0 0 0;" type="number" name="" :value="inputValue">
         <a @click="increase" class="button button--secondary">+</a>
       </div>
       <div class="small-4 cell text_right">

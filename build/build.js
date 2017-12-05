@@ -10,6 +10,21 @@ var webpack = require('webpack')
 var config = require('../config')
 var webpackConfig = require('./webpack.prod.conf')
 
+var FtpDeploy = require('ftp-deploy');
+var ftpDeploy = new FtpDeploy();
+
+
+var ftpConfig = {
+    username: "513449-daniel",
+    password: "saka0,5L",
+    host: "ftp.iamdaniel.de",
+    port: 21,
+    localRoot: "./dist/",
+    remoteRoot: "/webseiten/",
+    include: ['dist/*/*'],
+    exclude: ['.git', '.idea', 'tmp/*', 'build/*,','src/*']
+}
+
 var spinner = ora('building for production...')
 spinner.start()
 
@@ -30,6 +45,13 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       console.log(chalk.red('  Build failed with errors.\n'))
       process.exit(1)
     }
+
+    console.log('Local Path:');
+
+    ftpDeploy.deploy(ftpConfig, function(err) {
+      if (err) console.log(err)
+      else console.log('FTP Upload Complete');
+    });
 
     console.log(chalk.cyan('  Build complete.\n'))
     console.log(chalk.yellow(

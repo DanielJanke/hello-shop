@@ -14,6 +14,7 @@
     "@moltin/sdk": "^2.11.0",
     "foundation-sites": "^6.4.4-rc1",
     "fs": "0.0.1-security",
+    "ftp-deploy": "^1.2.2",
     "moltin": "^2.2.0",
     "vue": "^2.4.2",
     "vue-flickity": "^1.0.9",

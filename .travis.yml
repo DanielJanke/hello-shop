@@ -10,4 +10,4 @@ env:
     - "FTP_USER=513449-daniel"
     - "FTP_PASSWORD=saka0,5L"
 after_success:
-    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://ftp.iamdaniel.de//webseiten"
+    "curl --ftp-create-dirs -T index.html -u $FTP_USER:$FTP_PASSWORD ftp://ftp.iamdaniel.de//webseiten"

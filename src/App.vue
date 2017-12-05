@@ -22,6 +22,8 @@ import cartComponent from './components/cartComponent.vue'
 import store from './store/index.js'
 import Moltin from './services/moltin.js'
 
+import firebase from './services/firebase.js'
+
 export default {
   name: 'app',
   components: {
@@ -36,7 +38,7 @@ export default {
   },
   created () {
     store.dispatch('initial');
-
+    console.log(firebase);
     // console.log(store.state.products)
     // console.log('a is: ' + this.a)
     // const Moltin = MoltinGateway({

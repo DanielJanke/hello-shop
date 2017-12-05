@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="small-12 medium-4 medium-offset-2  cell">
+    <!-- <div class="small-12 medium-4 medium-offset-2  cell">
       <div class="grid-container box">
         <h2 class="textCenter">ALS GAST BESTELLEN</h2>
         <div class="grid-x grid-margin-x">
@@ -64,7 +64,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 </template>
@@ -73,6 +73,7 @@
 import productBox from '@/components/productBox.vue'
 import store from '@/store/index.js'
 import Moltin from '../../services/moltin.js'
+import firebase from '../../services/firebase.js'
 
 export default {
   name: 'pageCart',
@@ -81,7 +82,17 @@ export default {
   },
   data: function () {
     return {
-      cart: {}
+      cart: {},
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    authenticate () {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
     }
   },
   created: function () {

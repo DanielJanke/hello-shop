@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@moltin/sdk": "^2.11.0",
+    "firebase": "^4.7.0",
     "foundation-sites": "^6.4.4-rc1",
     "fs": "0.0.1-security",
     "ftp-deploy": "^1.2.2",

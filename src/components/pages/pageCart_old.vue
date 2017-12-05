@@ -89,7 +89,9 @@
 <script type="text/javascript">
 import productBox from '@/components/productBox.vue'
 import store from '@/store/index.js'
+
 import Moltin from '../../services/moltin.js'
+import firebase from './services/firebase.js'
 
 export default {
   name: 'pageCart',

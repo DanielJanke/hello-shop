@@ -8,19 +8,21 @@
         <div class="grid-x grid-margin-x">
           <div class="small-12 cell">
             <label>Email
-              <input type="text">
+              <input v-model="email" type="text">
             </label>
           </div>
           <div class="small-12 cell">
             <label>Passwort
-              <input type="password">
+              <input v-model="password" type="password">
             </label>
           </div>
 
 
           <div class="small-12 cell">
-            <a class="button button--primary margin-bottom-1" href="#">Anmelden</a>
-            <a class="button button--secondary">Passwort veressen?</a>
+
+            <a @click="authenticate" class="button button--primary margin-bottom-1">Anmelden</a>
+            <p>{{ message }}</p>
+            <!-- <a class="button button--secondary">Passwort veressen?</a> -->
           </div>
         </div>
       </div>
@@ -84,24 +86,27 @@ export default {
     return {
       cart: {},
       email: '',
-      password: ''
+      password: '',
+      message: 'lala'
     }
   },
   methods: {
     authenticate () {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+
+      .catch((error)=>{
+        console.log(error);
+        this.message = error.message;
       });
+
+      // console.log('m' + message);
+
+      // this.message = message;
     }
   },
   created: function () {
-    console.log('Cart');
-    console.log(store);
-    // console.log(Moltin.Cart.Items());
     Moltin.Cart.Items().then((cart) => {
-      console.log('cart:');
-      console.log(cart);
       this.cart = cart;
     })
   }

@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="small-12 medium-4 medium-offset-2  cell">
+    <div class="small-12 medium-4 medium-offset-2  margin-bottom-2 cell">
       <div class="grid-container box">
         <h2 class="textCenter">ALS GAST BESTELLEN</h2>
         <div class="grid-x grid-margin-x">
@@ -61,12 +61,32 @@
               <label for="checkbox2">Meine Rechnungsadresse ist identisch mit meiner Lieferadresse</label><input id="checkbox2" type="checkbox">
             </fieldset>
           </div>
-          <div class="small-12 cell">
+          <div class="small-12 cell ">
             <a class="button button--primary margin-bottom-1" href="#">Kostenpflichtig bestellen</a>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
+    <div class="small-12 medium-4 cell">
+      <div class="grid-container box">
+        <h2 class="textCenter">REGISTRIEREN</h2>
+        <div class="grid-x grid-margin-x">
+          <div class="small-12 cell">
+            <label>Email
+              <input v-model="email" type="email" placeholder="Email">
+            </label>
+          </div>
+          <div class="small-12 cell">
+            <label>Passwort
+              <input v-model="password" type="password" placeholder="Passwort">
+            </label>
+          </div>
+          <div class="small-12 cell ">
+            <a @click="register" class="button button--primary margin-bottom-1">Registrieren</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -92,17 +112,29 @@ export default {
   },
   methods: {
     authenticate () {
-
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-
-      .catch((error)=>{
-        console.log(error);
-        this.message = error.message;
-      });
-
-      // console.log('m' + message);
-
-      // this.message = message;
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+        (user)=>{
+          console.log('user:');
+          console.log(user);
+          this.$router.replace('home');
+          this.message = user;
+        },
+        (error)=> {
+          console.log('error');
+          console.log(error);
+          this.message = error.message;
+        }
+      )
+    },
+    register () {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+        (user) => {
+          console.log(user);
+        },
+        (error)=> {
+          console.log(error);
+        }
+      )
     }
   },
   created: function () {

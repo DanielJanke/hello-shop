@@ -84,6 +84,10 @@
           <div class="small-12 cell ">
             <a @click="register" class="button button--primary margin-bottom-1">Registrieren</a>
           </div>
+
+          <div class="small-12 cell">
+            <p>{{message}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -93,7 +97,7 @@
 
 <script type="text/javascript">
 import productBox from '@/components/productBox.vue'
-import store from '@/store/index.js'
+// import store from '@/store/index.js'
 import Moltin from '../../services/moltin.js'
 import firebase from '../../services/firebase.js'
 
@@ -113,13 +117,13 @@ export default {
   methods: {
     authenticate () {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-        (user)=>{
+        (user) => {
           console.log('user:');
           console.log(user);
           this.$router.replace('home');
           this.message = user;
         },
-        (error)=> {
+        (error) => {
           console.log('error');
           console.log(error);
           this.message = error.message;
@@ -131,8 +135,9 @@ export default {
         (user) => {
           console.log(user);
         },
-        (error)=> {
+        (error) => {
           console.log(error);
+          this.message = error.message;
         }
       )
     }

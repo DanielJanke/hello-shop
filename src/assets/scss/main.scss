@@ -35,7 +35,7 @@ p {
   margin-bottom: 1rem;
 }
 
-label, input {
+nav, label, input, ul {
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -50,6 +50,7 @@ a {
 label {
   color: $white;
 }
+
 
 /** === Helper Classes === */
 
@@ -72,6 +73,10 @@ label {
 
 .margin-top-1 {
   padding-top: 1rem;
+}
+
+.margin-top-2 {
+  padding-top: 2rem;
 }
 
 .margin-bottom-1 {

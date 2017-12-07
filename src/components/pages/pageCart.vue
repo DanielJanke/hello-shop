@@ -97,7 +97,7 @@
 
 <script type="text/javascript">
 import productBox from '@/components/productBox.vue'
-// import store from '@/store/index.js'
+import store from '@/store/index.js'
 import Moltin from '../../services/moltin.js'
 import firebase from '../../services/firebase.js'
 
@@ -109,8 +109,8 @@ export default {
   data: function () {
     return {
       cart: {},
-      email: '',
-      password: '',
+      email: 'register.d.janke@me.com',
+      password: 'saka0,5L',
       message: 'lala'
     }
   },
@@ -118,10 +118,9 @@ export default {
     authenticate () {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         (user) => {
-          console.log('user:');
-          console.log(user);
-          this.$router.replace('home');
-          this.message = user;
+          console.log('store:');
+          store.state.user = user;
+          this.$router.replace('mein-account');
         },
         (error) => {
           console.log('error');

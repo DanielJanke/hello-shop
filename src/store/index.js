@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Moltin from '../services/moltin.js'
+import firebase from '../services/firebase.js'
 
 Vue.use(Vuex)
 
@@ -16,7 +17,8 @@ const state = {
   cart: {
     cartIsOpen: false,
     cartContent: {}
-  }
+  },
+  user: {}
 }
 
 const actions = {
@@ -24,7 +26,10 @@ const actions = {
   initial () {
     Moltin.Cart.Items().then((cart) => {
       state.cart.cartContent = cart;
-    })
+    });
+    state.user = firebase.auth().currentUser;
+    console.log('state');
+    console.log(state);
   },
   addToCart (commit, payload) {
     console.log('payload:');

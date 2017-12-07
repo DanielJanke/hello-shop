@@ -24,9 +24,12 @@ const state = {
 const actions = {
   // Page loaded
   initial () {
+    console.log('App loaded');
     Moltin.Cart.Items().then((cart) => {
       state.cart.cartContent = cart;
     });
+    console.log('FIREBASE AUTH:');
+    console.log(firebase.auth().currentUser);
     state.user = firebase.auth().currentUser;
     console.log('state');
     console.log(state);

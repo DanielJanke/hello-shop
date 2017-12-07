@@ -72,6 +72,11 @@
         <h2 class="textCenter">REGISTRIEREN</h2>
         <div class="grid-x grid-margin-x">
           <div class="small-12 cell">
+            <label>Name
+              <input v-model="name" type="text" placeholder="Name">
+            </label>
+          </div>
+          <div class="small-12 cell">
             <label>Email
               <input v-model="email" type="email" placeholder="Email">
             </label>
@@ -81,12 +86,17 @@
               <input v-model="password" type="password" placeholder="Passwort">
             </label>
           </div>
+          <div class="small-12 cell">
+            <label>Passwort wiederholen
+              <input v-model="password_repeat" type="password" placeholder="Passwort">
+            </label>
+          </div>
           <div class="small-12 cell ">
             <a @click="register" class="button button--primary margin-bottom-1">Registrieren</a>
           </div>
 
           <div class="small-12 cell">
-            <p>{{message}}</p>
+            <p style="color: #e33">{{message}}</p>
           </div>
         </div>
       </div>
@@ -109,8 +119,10 @@ export default {
   data: function () {
     return {
       cart: {},
+      name: '',
       email: 'register.d.janke@me.com',
       password: 'saka0,5L',
+      password_repeat: '',
       message: 'lala'
     }
   },
@@ -130,15 +142,29 @@ export default {
       )
     },
     register () {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-        (user) => {
-          console.log(user);
-        },
-        (error) => {
-          console.log(error);
-          this.message = error.message;
-        }
-      )
+      if (this.password !== this.password_repeat) {
+        this.message = 'Passwörter stimmen nicht überein.';
+      } else {
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+          (user) => {
+            console.log(user);
+            user.updateProfile({
+              displayName: this.name
+            }).then(() => {
+              console.log('Set user Name successfull');
+              this.message = ''
+              store.state.user = user;
+              this.$router.replace('mein-account');
+            }).catch((error) => {
+              console.log('Couldnt set user name: ' + error);
+            });
+          },
+          (error) => {
+            console.log(error);
+            this.message = error.message;
+          }
+        )
+      }
     }
   },
   created: function () {

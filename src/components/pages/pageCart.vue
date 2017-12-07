@@ -120,7 +120,7 @@ export default {
         (user) => {
           console.log('user:');
           console.log(user);
-          this.$router.replace('home');
+          this.$router.replace('mein-account');
           this.message = user;
         },
         (error) => {

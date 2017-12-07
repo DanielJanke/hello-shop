@@ -6,6 +6,7 @@ import Product from '@/components/pages/pageProduct'
 import notFound from '@/components/notFound'
 import pageHome from '@/components/pages/pageHome'
 import pageCart from '@/components/pages/pageCart'
+import account from '@/components/pages/pageAccount.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/Product/:slug',
       name: 'Product',
       component: Product
+    },
+    {
+      path: '/mein-account',
+      name: 'account',
+      component: account
     },
     {
       path: '/404',

@@ -35,6 +35,9 @@ const actions = {
         state.cart.cartContent = cart;
       })
     })
+  },
+  logStore () {
+    console.log(state);
   }
 }
 

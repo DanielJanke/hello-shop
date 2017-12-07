@@ -72,6 +72,11 @@
         <h2 class="textCenter">REGISTRIEREN</h2>
         <div class="grid-x grid-margin-x">
           <div class="small-12 cell">
+            <label>Name
+              <input v-model="name" type="text" placeholder="Name">
+            </label>
+          </div>
+          <div class="small-12 cell">
             <label>Email
               <input v-model="email" type="email" placeholder="Email">
             </label>
@@ -109,6 +114,7 @@ export default {
   data: function () {
     return {
       cart: {},
+      name: '',
       email: 'register.d.janke@me.com',
       password: 'saka0,5L',
       message: 'lala'
@@ -133,6 +139,13 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
         (user) => {
           console.log(user);
+          user.updateProfile({
+            displayName: this.name
+          }).then(() => {
+            console.log('Set user Name successfull');
+          }).catch((error) => {
+            console.log('Couldnt set user name: ' + error);
+          });
         },
         (error) => {
           console.log(error);

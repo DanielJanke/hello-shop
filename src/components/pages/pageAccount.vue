@@ -21,6 +21,11 @@ import store from '@/store/index.js'
 export default {
   name: 'account',
   created: function () {
+    // Redirect if not logged in
+    if (store.state.user === null) {
+      this.$router.replace('warenkorb');
+      console.log('not logged in');
+    }
     console.log('Account created');
     console.log(store.state.user);
   }

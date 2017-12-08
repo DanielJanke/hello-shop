@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <router-link :to="{ name: 'pageCart', params: {} }"><span @click="$store.commit('toggleCart')" class="button button--primary position-bottom">Zur Kasse</span></router-link>
+        <router-link :to="{ name: 'checkout01', params: {} }"><span @click="$store.commit('toggleCart')" class="button button--primary position-bottom">Zur Kasse</span></router-link>
       </div>
     </div>
   </transition>

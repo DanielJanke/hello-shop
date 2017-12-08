@@ -130,13 +130,10 @@ export default {
     authenticate () {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         (user) => {
-          console.log('store:');
           store.state.user = user;
           this.$router.replace('mein-account');
         },
         (error) => {
-          console.log('error');
-          console.log(error);
           this.message = error.message;
         }
       )

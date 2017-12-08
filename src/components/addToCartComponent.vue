@@ -37,8 +37,6 @@ export default {
   },
   beforeMount: function () {
     console.log(Moltin);
-    console.log('this');
-    console.log(this._props.productId);
   }
 }
 </script>

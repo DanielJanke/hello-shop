@@ -1,6 +1,7 @@
 <template>
 <div class="grid-container">
   <h1 class="textCenter margin-top-1">BESTELLEN</h1>
+  <p class="textCenter margin-bottom-2">Gleich geschafft. 1. 2. 3.</p>
   <div class="grid-x grid-margin-x">
     <div class="small-12 medium-4 medium-offset-1  margin-bottom-2 cell">
       <div class="grid-container box">

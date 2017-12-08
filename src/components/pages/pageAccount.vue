@@ -53,7 +53,7 @@ export default {
       store.state.status.visible = 'true';
       store.state.status.type = 'orange';
       store.state.status.message = 'Du musst eingeloggt sein, um diese Seite zu sehen';
-      // this.$router.replace('warenkorb');
+      this.$router.replace('warenkorb');
       console.log('not logged in');
     }
     console.log('Account created');

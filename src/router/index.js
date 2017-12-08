@@ -7,6 +7,7 @@ import notFound from '@/components/notFound'
 import pageHome from '@/components/pages/pageHome'
 import pageCart from '@/components/pages/pageCart'
 import account from '@/components/pages/pageAccount.vue'
+import checkout01 from '@/components/pages/pageCheckout_01.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ export default new Router({
       path: '/Product/:slug',
       name: 'Product',
       component: Product
+    },
+    {
+      path: '/checkout/adresse',
+      name: 'checkout01',
+      component: checkout01
     },
     {
       path: '/mein-account',

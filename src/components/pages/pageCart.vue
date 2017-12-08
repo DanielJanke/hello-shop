@@ -166,6 +166,9 @@ export default {
     }
   },
   created: function () {
+    if (store.state.user !== null) {
+      this.$router.replace('/checkout/adresse');
+    }
     Moltin.Cart.Items().then((cart) => {
       this.cart = cart;
     })

@@ -6,10 +6,13 @@
           <div class="small-6 medium-4 cell">
             <router-link :to="{ name: 'pageHome', params: {} }"><img width="130px" src="../assets/logo-white.png" alt=""></router-link>
           </div>
-          <div class="small-3 medium-3 cell">
+          <div class="small-3 medium-2 cell">
             <router-link :to="{ name: 'pageHome', params: {} }">Home</router-link>
           </div>
-          <div @click="$store.commit('toggleCart')" class="small-3 medium-3 cell">
+          <div class="small-3 medium-2 cell">
+            <router-link :to="{ name: 'account', params: {} }">Mein Account</router-link>
+          </div>
+          <div @click="$store.commit('toggleCart')" class="small-3 medium-2 cell">
             <!-- <router-link :to="{ name: 'pageCart', params: {} }">Cart</router-link> -->
             <span>Warenkorb</span>
           </div>

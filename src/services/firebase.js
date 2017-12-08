@@ -1,4 +1,5 @@
 import * as firebase from 'firebase'
+require('firebase/firestore');
 
 var config = {
   apiKey: 'AIzaSyAZknjFHt_2abAf6XrwHb4XrDcIvwoz1BY',
@@ -10,7 +11,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-console.log('fb output');
-// console.log(firebase.auth());
+console.log(firebase);
 
 export default firebase;

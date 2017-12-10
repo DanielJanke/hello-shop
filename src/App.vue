@@ -1,5 +1,6 @@
 <template>
-  <div v-bind:class="{ overflow_hidden: $store.state.cart.cartIsOpen }" id="app">
+  <!-- <div v-bind:class="{ overflow_hidden: $store.state.cart.cartIsOpen }" id="app"> -->
+  <div id="app">
     <errorMessageComponent v-bind:status="$store.state.status"></errorMessageComponent>
     <navigationBarComponent></navigationBarComponent>
     <cartComponent></cartComponent>
@@ -37,6 +38,7 @@ export default {
     }
   },
   created () {
+    store.state.user = firebase.auth().currentUser;
     store.dispatch('initial');
     console.log(firebase);
     // console.log(store.state.products)

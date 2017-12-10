@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <h1 class="textCenter margin-top-2">Hey, {{$store.state.user.displayName}}</h1>
-    <h2>{{ $store.state.user.uid}}</h2>
+    <h2 style="font-size: 12px">{{ $store.state.user.uid}}</h2>
 
-    Sa3879PZb4af5NskT0BFrlQU3bH3
+    Sa3879PZb4af5NbtskT0BFrlQU3bH3
     <ul>
       <li>Akuelle Bestellung</li>
       <li>Deine Bestellungen</li>

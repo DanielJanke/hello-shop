@@ -13,7 +13,7 @@
         <p class="text_right" @click="$store.commit('toggleCart')">X</p>
         <h2 class="textCenter">WARENKORB</h2>
         <hr>
-        <div style="height: 78vh; overflow: scroll">
+        <div style="">
 
 
           <div v-for="product in $store.state.cart.cartContent.data">
@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <router-link :to="{ name: 'checkout01', params: {} }"><span @click="$store.commit('toggleCart')" class="button button--primary position-bottom">Zur Kasse</span></router-link>
+        <router-link :to="{ name: 'pageCart', params: {} }"><span @click="$store.commit('toggleCart')" class="button button--primary position-bottom">Zur Kasse</span></router-link>
       </div>
     </div>
   </transition>

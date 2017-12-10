@@ -18,6 +18,11 @@ const state = {
     cartIsOpen: false,
     cartContent: {}
   },
+  ui: {
+    menu: {
+      isOpen: false
+    }
+  },
   user: {}
 }
 
@@ -51,10 +56,11 @@ const actions = {
 
 const mutations = {
   toggleCart () {
-    console.log('toggle cart');
-
     state.cart.cartIsOpen = !state.cart.cartIsOpen;
-    console.log(state.cart.cartIsOpen);
+  },
+  toggleMenu () {
+    state.ui.menu.isOpen = !state.ui.menu.isOpen;
+    console.log(state.ui.menu.isOpen);
   }
 }
 

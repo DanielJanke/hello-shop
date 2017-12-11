@@ -293,6 +293,7 @@ label {
 }
 
 @media (min-width: 768px) {
+
   .button {
     padding: 0.5rem 1rem;
   }
@@ -304,6 +305,8 @@ label {
   position: absolute;
   width: 3rem;
   height: 3rem;
+  right: 1rem;
+
   margin-top: 1.5rem;
   z-index: 1000;
   &__bar {
@@ -332,7 +335,7 @@ label {
 
 @media (min-width: 800px) {
   .toggle {
-    display: none;
+    // display: none;
   }
 }
 
@@ -472,6 +475,12 @@ label {
 .bar {
   height: 4rem;
   color: white;
+
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 /** — Cart Component — */
@@ -490,6 +499,11 @@ label {
   padding: 0 1rem;
   box-sizing: border-box;
 
+  // The responsive menu cant work with the vue transition component, so we have to animate is manually
+
+  transform: translateX(110%);
+  transition: all 0.2s;
+
   &__overlayLeft {
     width: 100vw;
     height: 100vh;
@@ -506,7 +520,7 @@ label {
   }
   &--menu {
     box-shadow: -2px 0 8px #000;
-    padding-top: 5rem;
+    padding-top: 0rem;
   }
   &--cart {
     box-shadow: -2px 0 8px #000;
@@ -516,20 +530,28 @@ label {
     // text-align: center;
     display: block;
   }
+
+  &__active {
+    transform: translateX(0%);
+  }
 }
 
 @media (min-width: 800px) {
-  .cartComponent--menu {
-    position: static;
-    background: 0;
-    box-shadow: none;
-  }
-  .cartComponent__overlayLeft--menu {
-    display: none;
-  }
-  .cartComponent__categoryElement {
-    display: inline-block;
-    margin-right: 1rem;
+  .cartComponent {
+
+    &--menu {
+      position: static;
+      background: 0;
+      box-shadow: none;
+      transform: none;
+    }
+    &__overlayLeft--menu {
+      display: none;
+    }
+    &__categoryElement {
+      display: inline-block;
+      margin-right: 1rem;
+    }
   }
 }
 

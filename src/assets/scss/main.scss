@@ -448,6 +448,9 @@ label {
     height: 100%;
     width: 80%;
   }
+  &__accountIcon {
+    display: none;
+  }
 }
 
 @media (min-width: 800px) {
@@ -456,6 +459,9 @@ label {
     * {
       margin-right: 1rem;
     }
+  }
+  .navigationBar__accountIcon {
+    display: block;
   }
 }
 
@@ -491,6 +497,7 @@ label {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 110;
     opacity: 1;
+    &--menu {}
   }
 
   &__priceRow {
@@ -499,9 +506,15 @@ label {
   }
   &--menu {
     box-shadow: -2px 0 8px #000;
+    padding-top: 5rem;
   }
   &--cart {
     box-shadow: -2px 0 8px #000;
+  }
+  &__categoryElement{
+    // font-size: 2rem;
+    // text-align: center;
+    display: block;
   }
 }
 
@@ -510,6 +523,13 @@ label {
     position: static;
     background: 0;
     box-shadow: none;
+  }
+  .cartComponent__overlayLeft--menu {
+    display: none;
+  }
+  .cartComponent__categoryElement {
+    display: inline-block;
+    margin-right: 1rem;
   }
 }
 

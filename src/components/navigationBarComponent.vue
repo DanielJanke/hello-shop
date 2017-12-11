@@ -6,19 +6,25 @@
           <div class="small-6 medium-4 cell">
             <router-link :to="{ name: 'pageHome', params: {} }"><img style="margin-top: 5px;" width="130px" src="../assets/logo-white.png" alt=""></router-link>
           </div>
-          <!-- <div class="small-3 medium-2 cell">
-            <router-link :to="{ name: 'account', params: {} }">Mein Account</router-link>
-          </div> -->
 
           <transition name="fadeout">
-            <div v-if="$store.state.ui.menu.isOpen" @click="$store.commit('toggleMenu')" class="cartComponent__overlayLeft"></div>
+            <div v-if="$store.state.ui.menu.isOpen" @click="$store.commit('toggleMenu')" class="cartComponent__overlayLeft cartComponent__overlayLeft--menu"></div>
           </transition>
 
           <transition name="slideLeft">
             <div v-if="$store.state.ui.menu.isOpen" class="cartComponent cartComponent--menu">
-              <p v-for="category in $store.state.categories.data">{{category.name}}</p>
+              <span class="cartComponent__categoryElement" v-for="category in $store.state.categories.data">{{category.name}}</span>
+              <b>___</b>
+              <div class="small-3 medium-2 cell">
+                <router-link :to="{ name: 'account', params: {} }"><i class="material-icons navigationBar__cart">account_circle</i></router-link>
+              </div>
             </div>
           </transition>
+
+          <div class="navigationBar__accountIcon small-3 medium-2 cell">
+            <router-link :to="{ name: 'account', params: {} }"><i class="material-icons navigationBar__cart">account_circle</i></router-link>
+          </div>
+
 
           <div @click="$store.commit('toggleCart')" class="small-3 medium-2 cell">
             <!-- <span>Warenkorb</span> -->

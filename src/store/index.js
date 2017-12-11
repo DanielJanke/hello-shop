@@ -20,19 +20,31 @@ const state = {
   },
   ui: {
     menu: {
-      isOpen: false
+      isOpen: true
     }
   },
-  user: {}
+  user: {},
+  categories: {}
+}
+
+const getters = {
+  // categories: () => {
+  //   return state.products.data.;
+  // }
 }
 
 const actions = {
   // Page loaded
   initial () {
     console.log('App loaded');
+    console.log(Moltin);
     Moltin.Cart.Items().then((cart) => {
       state.cart.cartContent = cart;
     });
+    Moltin.Categories.Tree().then((cats) => {
+      state.categories = cats;
+    });
+
     console.log('FIREBASE AUTH:');
     console.log(firebase.auth().currentUser);
     state.user = firebase.auth().currentUser;
@@ -66,7 +78,7 @@ const mutations = {
 
 export default new Vuex.Store({
   state,
-  // getters,
+  getters,
   actions,
   mutations
 })

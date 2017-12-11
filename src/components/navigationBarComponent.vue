@@ -4,11 +4,21 @@
       <div class="grid-container bar">
         <div class="grid-x grid-margin-x">
           <div class="small-6 medium-4 cell">
-            <router-link :to="{ name: 'pageHome', params: {} }"><img width="130px" src="../assets/logo-white.png" alt=""></router-link>
+            <router-link :to="{ name: 'pageHome', params: {} }"><img style="margin-top: 5px;" width="130px" src="../assets/logo-white.png" alt=""></router-link>
           </div>
           <!-- <div class="small-3 medium-2 cell">
             <router-link :to="{ name: 'account', params: {} }">Mein Account</router-link>
           </div> -->
+
+          <transition name="fadeout">
+            <div v-if="$store.state.ui.menu.isOpen" @click="$store.commit('toggleMenu')" class="cartComponent__overlayLeft"></div>
+          </transition>
+
+          <transition name="slideLeft">
+            <div v-if="$store.state.ui.menu.isOpen" class="cartComponent cartComponent--menu">
+              <p v-for="category in $store.state.categories.data">{{category.name}}</p>
+            </div>
+          </transition>
 
           <div @click="$store.commit('toggleCart')" class="small-3 medium-2 cell">
             <!-- <span>Warenkorb</span> -->
@@ -22,9 +32,10 @@
               <div v-bind:class="{toggle__bar__active: $store.state.ui.menu.isOpen}" class="toggle__bar"></div>
             </div>
           </div>
-          <div @click="$store.dispatch('logStore')" class="">
-            <!-- <span>DEV: log Store</span> -->
-          </div>
+          <!-- <div @click="$store.dispatch('logStore')" class="">
+            <span>DEV: log Store</span>
+          </div> -->
+
         </div>
       </div>
     </nav>

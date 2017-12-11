@@ -7,15 +7,13 @@
 
 
   <transition name="slideLeft">
-    <div v-if="$store.state.cart.cartIsOpen" class="cartComponent">
+    <div v-if="$store.state.cart.cartIsOpen" class="cartComponent cartComponent--cart">
 
       <div class="cartComponent__cart textCenter">
         <p class="text_right" @click="$store.commit('toggleCart')">X</p>
         <h2 class="textCenter">WARENKORB</h2>
         <hr>
         <div style="">
-
-
           <div v-for="product in $store.state.cart.cartContent.data">
             <p class="cartComponent__priceRow"><span>{{ product.quantity }} x </span> <span>{{ product.name }}</span>{{product.meta.display_price.with_tax.value.formatted}}</p>
             <hr>

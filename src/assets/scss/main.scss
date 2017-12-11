@@ -298,12 +298,14 @@ label {
   }
 }
 
-/** — toggle Button — */
+/** — toggle responsive Menu Button — */
 
 .toggle {
+  position: absolute;
   width: 3rem;
   height: 3rem;
   margin-top: 1.5rem;
+  z-index: 1000;
   &__bar {
     height: 3px;
     width: 22px;
@@ -325,6 +327,12 @@ label {
         transform: rotate(45deg);
       }
     }
+  }
+}
+
+@media (min-width: 800px) {
+  .toggle {
+    display: none;
   }
 }
 
@@ -435,6 +443,20 @@ label {
   &__cart {
     margin-top: 1.25rem;
   }
+  &__category{
+    position: fixed;
+    height: 100%;
+    width: 80%;
+  }
+}
+
+@media (min-width: 800px) {
+  .navigationBar__category {
+    margin-top: 1.25rem;
+    * {
+      margin-right: 1rem;
+    }
+  }
 }
 
 .notificationActive {
@@ -457,14 +479,14 @@ label {
   z-index: 110;
   right: 0;
   background-color: #222;
-  box-shadow: -2px 0 8px #000;
+
   overflow: scroll;
   padding: 0 1rem;
   box-sizing: border-box;
 
   &__overlayLeft {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 110;
@@ -474,6 +496,20 @@ label {
   &__priceRow {
     display: flex;
     justify-content: space-between;
+  }
+  &--menu {
+    box-shadow: -2px 0 8px #000;
+  }
+  &--cart {
+    box-shadow: -2px 0 8px #000;
+  }
+}
+
+@media (min-width: 800px) {
+  .cartComponent--menu {
+    position: static;
+    background: 0;
+    box-shadow: none;
   }
 }
 
